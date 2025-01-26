@@ -1,9 +1,10 @@
 package com.luv2code.ecommerce.config;
 
 
+import com.luv2code.ecommerce.entity.Country;
 import com.luv2code.ecommerce.entity.Product;
 import com.luv2code.ecommerce.entity.ProductCategory;
-import jakarta.persistence.Entity;
+import com.luv2code.ecommerce.entity.State;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,29 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 // Disable methods for single category (example: /api/product-category/1)
                 .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
                 // Disable methods for category collection (example: /api/product-category)
+                .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+
+
+
+        // --- Country Configuration ---
+        // Disable HTTP methods for Country entity
+        // This makes the Country endpoints -> ((read-only))
+        config.getExposureConfiguration()
+                .forDomainType(Country.class)
+                // Disable methods for single category (example: /api-countries/countries/1)
+                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+                // Disable methods for category collection (example: /api-countries/countries)
+                .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+
+
+        // --- State Configuration ---
+        // Disable HTTP methods for Country entity
+        // This makes the State endpoints -> ((read-only))
+        config.getExposureConfiguration()
+                .forDomainType(State.class)
+                // Disable methods for single category (example: /api-states/states/1)
+                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+                // Disable methods for category collection (example: /api-states/states)
                 .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
 
 
