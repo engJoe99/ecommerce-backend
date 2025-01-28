@@ -21,7 +21,7 @@ public class CountryController {
 
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
-        System.out.println("===>> Countries: " + countryService.getAllCountries());
+        //System.out.println("===>> Countries: " + countryService.getAllCountries());
         return countryService.getAllCountries();
     }
 
