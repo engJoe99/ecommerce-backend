@@ -34,7 +34,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         // Create an array of HTTP methods we want to disable
         // This will prevent users from creating, updating, or deleting data
-        HttpMethod[] theUnsupportedActions = {HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE};
+        HttpMethod[] theUnsupportedActions = {HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE, HttpMethod.PATCH};
 
         // --- Product Configuration ---
         // Disable HTTP methods for Product entity
