@@ -52,6 +52,7 @@ public class Order {
     private Customer customer;
 
     @OneToOne(cascade = CascadeType.ALL)
+
     @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
     private Address shippingAddress;
 
@@ -117,8 +118,8 @@ public class Order {
         this.dateUpdated = dateUpdated;
     }
 
-    public Set<OrderItem> getOrderItems() {
-        return orderItems;
+    public int getOrderItems() {
+        return orderItems.size();
     }
 
     public void setOrderItems(Set<OrderItem> orderItems) {

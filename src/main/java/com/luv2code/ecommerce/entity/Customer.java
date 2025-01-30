@@ -24,8 +24,8 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
-    // One-to-many relationship with Order entity, mapped by customer field in Order class
-    // Cascade type ALL means all operations will cascade from Customer to associated Orders
+//     One-to-many relationship with Order entity, mapped by customer field in Order class
+//     Cascade type ALL means all operations will cascade from Customer to associated Orders
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Order> orders = new HashSet<>();
 
@@ -64,6 +64,15 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+
+   /* public void add(Order order) {
+        Set<Order> orders = new HashSet<>();
+        if (order != null) {
+            orders.add(order);
+            order.setCustomer(this);
+        }
+
+    }*/
 
     public Set<Order> getOrders() {
         return orders;
